@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #3B82F6;
+  --secondary: #64748B;
+  --accent: #8B5CF6;
+  --success: #10B981;
+  --warning: #F59E0B;
+  --error: #EF4444;
+  --background: #F9FAFB;
+  --foreground: #1F2937;
+  --card: #FFFFFF;
+  --card-foreground: #1F2937;
+  --editor-bg: #1E1E1E;
+}
+
+:root[class~="dark"] {
+  --background: #111827;
+  --foreground: #F9FAFB;
+  --card: #1F2937;
+  --card-foreground: #F9FAFB;
+  --editor-bg: #1E1E1E;
+}
+
+body {
+  @apply bg-[--background] text-[--foreground];
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.editor-container {
+  height: calc(100vh - 8rem);
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-md font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply text-white;
+    background-color: var(--primary);
+  }
+
+  .btn-primary:hover {
+    background-color: color-mix(in srgb, var(--primary) 90%, black);
+  }
+
+  .btn-primary:focus {
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 50%, transparent);
+  }
+
+  .btn-secondary {
+    @apply text-white;
+    background-color: var(--secondary);
+  }
+
+  .btn-secondary:hover {
+    background-color: color-mix(in srgb, var(--secondary) 90%, black);
+  }
+
+  .btn-secondary:focus {
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--secondary) 50%, transparent);
+  }
+
+  .btn-danger {
+    @apply text-white;
+    background-color: var(--error);
+  }
+
+  .btn-danger:hover {
+    background-color: color-mix(in srgb, var(--error) 90%, black);
+  }
+
+  .btn-danger:focus {
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--error) 50%, transparent);
+  }
+
+  .card {
+    @apply bg-[--card] rounded-lg shadow-md p-6;
+  }
+}
